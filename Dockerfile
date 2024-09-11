@@ -1,4 +1,4 @@
-FROM rust:1.64 AS build
+FROM rust:1.81-slim-bullseye AS build
 
 # Start from new project and copy only Cargo.toml to build and cache dependencies
 RUN USER=root cargo new --bin rest-smtp-api
