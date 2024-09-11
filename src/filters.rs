@@ -11,7 +11,7 @@ pub fn rest_smtp_api(
 
 /// GET /health
 fn health() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
-    warp::path!("health").map(|| Ok(StatusCode::OK))
+    warp::path!("health").map(|| StatusCode::OK)
 }
 
 /// POST /send
