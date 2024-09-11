@@ -18,6 +18,12 @@ RUN cargo build --release
 
 FROM debian:bullseye-slim
 
+WORKDIR /rest-smtp-api
+
+RUN apt-get update \
+  && apt-get install -y wget \
+  && apt-get clean
+
 COPY --from=build /rest-smtp-api/target/release/rest-smtp-api .
 
 CMD ["./rest-smtp-api"]
