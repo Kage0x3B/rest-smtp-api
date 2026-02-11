@@ -17,7 +17,7 @@ pub struct RestApiConfig {
 #[tokio::main]
 async fn main() {
     if env::var_os("RUST_LOG").is_none() {
-        env::set_var("RUST_LOG", "rest_smtp=info");
+        unsafe { env::set_var("RUST_LOG", "rest_smtp=info") };
     }
     pretty_env_logger::init();
 
