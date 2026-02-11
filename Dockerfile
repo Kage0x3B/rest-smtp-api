@@ -1,4 +1,4 @@
-FROM rust:1.81-slim-bullseye AS build
+FROM rust:1.93-slim-bookworm AS build
 
 # Start from new project and copy only Cargo.toml to build and cache dependencies
 RUN USER=root cargo new --bin rest-smtp-api
@@ -16,7 +16,7 @@ COPY ./src ./src
 RUN rm ./target/release/deps/rest_smtp_api*
 RUN cargo build --release
 
-FROM debian:bullseye-slim
+FROM debian:bookworm-slim
 
 WORKDIR /rest-smtp-api
 
